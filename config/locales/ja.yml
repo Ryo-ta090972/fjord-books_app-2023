@@ -181,3 +181,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+  books: 本の一覧
+  show_this_book: この本を表示する
+  new_book: 新しい本を追加する
