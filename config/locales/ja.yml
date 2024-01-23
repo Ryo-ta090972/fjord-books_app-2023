@@ -189,3 +189,6 @@ ja:
   memo: "メモ:"
   author: "著者:"
   picture: "写真:"
+  edit_this_book: 編集する
+  back_to_books: 戻る
+  destroy_this_book: 削除する
