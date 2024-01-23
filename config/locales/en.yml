@@ -219,3 +219,7 @@ en:
   books: books
   show_this_book: Show this book
   new_book: New book
+  title: "Title:"
+  memo: "Memo:"
+  author: "Author:"
+  picture: "Picture:"

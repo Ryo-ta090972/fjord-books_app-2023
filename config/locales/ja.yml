@@ -185,3 +185,7 @@ ja:
   books: 本の一覧
   show_this_book: この本を表示する
   new_book: 新しい本を追加する
+  title: "タイトル:"
+  memo: "メモ:"
+  author: "著者:"
+  picture: "写真:"
