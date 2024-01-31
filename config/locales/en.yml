@@ -145,6 +145,7 @@ en:
       header:
         one: "%{count} error prohibited this %{model} from being saved"
         other: "%{count} errors prohibited this %{model} from being saved"
+        not_saved: prohibited this book from being saved
   helpers:
     select:
       prompt: Please select
@@ -215,17 +216,17 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-
-  books: books
-  show_this_book: Show this book
-  new_book: New book
-  title: "Title:"
-  memo: "Memo:"
-  author: "Author:"
-  picture: "Picture:"
-  edit_this_book: Edit this book
-  back_to_books: Back to books
-  destroy_this_book: Destroy this book
-  editing_book: Editing book
-  new_book: New book
-  prohibited_this_book_from_being_saved: prohibited this book from being saved
+  common:
+    title: "Title:"
+    memo: "Memo:"
+    author: "Author:"
+    picture: "Picture:"
+    edit: Edit this book
+    back: Back to books
+    destroy: Destroy this book
+    show: Show this book
+    add: New book
+  book:
+    table: books
+    edit: Editing book
+    add: New book

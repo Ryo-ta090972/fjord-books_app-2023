@@ -113,6 +113,7 @@ ja:
     template:
       body: 次の項目を確認してください
       header: "%{model}に%{count}個のエラーが発生しました"
+      not_saved: この本を保存できませんでした
   helpers:
     select:
       prompt: 選択してください
@@ -181,17 +182,17 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-
-  books: 本の一覧
-  show_this_book: この本を表示する
-  new_book: 新しい本を追加する
-  title: "タイトル:"
-  memo: "メモ:"
-  author: "著者:"
-  picture: "写真:"
-  edit_this_book: 編集する
-  back_to_books: 戻る
-  destroy_this_book: 削除する
-  editing_book: 本を編集する
-  new_book: 本の追加
-  prohibited_this_book_from_being_saved: この本を保存できませんでした
+  common:
+    title: "タイトル:"
+    memo: "メモ:"
+    author: "著者:"
+    picture: "写真:"
+    edit: 編集する
+    back: 戻る
+    destroy: 削除する
+    show: 表示する
+    add: 追加する
+  book:
+    table: 本の一覧
+    edit: 本の編集
+    add: 本の追加
