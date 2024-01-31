@@ -194,3 +194,4 @@ ja:
   destroy_this_book: 削除する
   editing_book: 本を編集する
   new_book: 本の追加
+  prohibited_this_book_from_being_saved: この本を保存できませんでした
