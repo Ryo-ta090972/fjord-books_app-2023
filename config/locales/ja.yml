@@ -196,3 +196,10 @@ ja:
     table: 本の一覧
     edit: 本の編集
     add: 本の追加
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最終 &raquo;"
+      previous: "&lsaquo; 前のページ"
+      next: "次のページ &rsaquo;"
+      truncate: "&hellip;"
