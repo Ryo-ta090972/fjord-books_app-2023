@@ -183,16 +183,20 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   common:
-    title: "タイトル:"
-    memo: "メモ:"
-    author: "著者:"
-    picture: "写真:"
     edit: 編集する
     back: 戻る
     destroy: 削除する
     show: 表示する
     add: 追加する
-  book:
-    table: 本の一覧
-    edit: 本の編集
-    add: 本の追加
+  title:
+    table: "%{name}の一覧"
+    edit: "%{name}の編集"
+    add: "%{name}の追加"
+  models:
+    book: 本
+  attribute:
+    book:
+      title: タイトル
+      memo: メモ
+      author: 著者
+      picture: 写真

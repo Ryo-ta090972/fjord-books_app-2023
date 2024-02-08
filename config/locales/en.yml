@@ -217,16 +217,20 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   common:
-    title: "Title:"
-    memo: "Memo:"
-    author: "Author:"
-    picture: "Picture:"
     edit: Edit this book
     back: Back to books
     destroy: Destroy this book
     show: Show this book
     add: New book
-  book:
-    table: books
-    edit: Editing book
-    add: New book
+  title:
+    table: "%{name}"
+    edit: "Editing %{name}"
+    add: "New %{name}"
+  models:
+    book: book
+  attribute:
+    book:
+      title: Title
+      memo: Memo
+      author: Author
+      picture: Picture
