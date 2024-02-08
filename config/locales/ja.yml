@@ -192,6 +192,8 @@ ja:
     table: "%{name}の一覧"
     edit: "%{name}の編集"
     add: "%{name}の追加"
+    created: "%{name}が正常に保存されました"
+    updated: "%{name}が正常に更新されました"
   models:
     book: 本
   attribute:

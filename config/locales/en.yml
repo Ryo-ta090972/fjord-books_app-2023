@@ -226,6 +226,8 @@ en:
     table: "%{name}"
     edit: "Editing %{name}"
     add: "New %{name}"
+    created: "%{name} was successfully created."
+    updated: "%{name} was successfully updated."
   models:
     book: book
   attribute:
