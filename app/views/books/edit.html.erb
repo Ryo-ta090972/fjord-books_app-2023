@@ -1,4 +1,4 @@
-<h1><%= t('book.edit') %></h1>
+<h1><%= t('title.edit', name: Book.model_name.human) %></h1>
 
 <%= render "form", book: @book %>
 
