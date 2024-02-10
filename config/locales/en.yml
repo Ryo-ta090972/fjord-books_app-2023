@@ -228,11 +228,4 @@ en:
     add: "New %{name}"
     created: "%{name} was successfully created."
     updated: "%{name} was successfully updated."
-  models:
-    book: book
-  attribute:
-    book:
-      title: Title
-      memo: Memo
-      author: Author
-      picture: Picture
+    destroyed: "%{name} was successfully destroyed."

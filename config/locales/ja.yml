@@ -194,11 +194,4 @@ ja:
     add: "%{name}の追加"
     created: "%{name}が正常に保存されました"
     updated: "%{name}が正常に更新されました"
-  models:
-    book: 本
-  attribute:
-    book:
-      title: タイトル
-      memo: メモ
-      author: 著者
-      picture: 写真
+    destroyed: "%{name}が正常に削除されました"
