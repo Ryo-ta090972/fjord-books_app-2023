@@ -217,11 +217,11 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   common:
-    edit: Edit this book
-    back: Back to books
-    destroy: Destroy this book
-    show: Show this book
-    add: New book
+    edit: Edit
+    back: Back
+    destroy: Destroy
+    show: Show
+    add: Add
   title:
     table: "%{name}"
     edit: "Editing %{name}"
