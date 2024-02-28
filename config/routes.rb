@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/list'
   devise_for :users
   resources :books
   root to: "home#index"
