@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/list'
   devise_for :users
   resources :books
+  resources :users
   root to: "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
