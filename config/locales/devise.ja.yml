@@ -117,6 +117,7 @@ ja:
       already_signed_out: 既にログアウト済みです。
       new:
         sign_in: ログイン
+        sign_out: ログアウト
       signed_in: ログインしました。
       signed_out: ログアウトしました。
     shared:
@@ -127,6 +128,7 @@ ja:
         forgot_your_password: パスワードを忘れましたか？
         sign_in: ログイン
         sign_in_with_provider: "%{provider}でログイン"
+        sign_in_with_provider_strong_html: "<strong>%{provider}</strong>でログイン"
         sign_up: アカウント登録
       minimum_password_length: "（%{count}字以上）"
     unlocks:
