@@ -21,4 +21,7 @@
 <div class="field">
   <%= f.label :image %>
   <%= f.file_field :image %>
+  <% if resource.image.attached? %>
+    <p><%= image_tag resource.image.variant(resize_to_limit: [300, 300]) %></p>
+  <% end %>
 </div>
