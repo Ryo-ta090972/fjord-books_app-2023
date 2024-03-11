@@ -2,5 +2,5 @@
 
 class Book < ApplicationRecord
   mount_uploader :picture, PictureUploader
-  has_many :comments
+  has_many :comments, as: :imageable
 end

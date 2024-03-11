@@ -1,4 +1,4 @@
 class Report < ApplicationRecord
   belongs_to :user
-  has_many :comments
+  has_many :comments, as: :imageable
 end
