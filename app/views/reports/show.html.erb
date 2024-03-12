@@ -2,6 +2,19 @@
 
 <%= render @report %>
 
+<%= form_with(model: @comment) do |form| %>
+  <div>
+    <%= form.hidden_field :commentable_type, value: @comment.commentable_type %>
+    <%= form.hidden_field :commentable_id, value: @comment.commentable_id %>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_field :text %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
 <div>
   <%= link_to "Edit this report", edit_report_path(@report) %> |
   <%= link_to "Back to reports", reports_path %>
