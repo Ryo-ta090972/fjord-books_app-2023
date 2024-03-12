@@ -4,6 +4,19 @@
   <%= render @book %>
 </div>
 
+<%= form_with(model: @comment) do |form| %>
+  <div>
+    <%= form.hidden_field :commentable_type, value: @comment.commentable_type %>
+    <%= form.hidden_field :commentable_id, value: @comment.commentable_id %>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_field :text %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
 <nav class="page-nav">
   <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %> |
   <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
