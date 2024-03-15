@@ -1,4 +1,4 @@
-<% unless comment.user_id.nil? || comment.text.blank? %>
+<% unless comment.user_id.nil? %>
   <div id="<%= dom_id comment %>" class="show-item">
     <p>
       <% if comment.user.name.blank? %>
