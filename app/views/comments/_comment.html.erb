@@ -1,0 +1,23 @@
+<% unless comment.user_id.nil? || comment.text.blank? %>
+  <div id="<%= dom_id comment %>" class="show-item">
+    <p>
+      <% if comment.user.name.blank? %>
+        <strong><%= Comment.human_attribute_name(:email) %>:</strong>
+        <%= comment.user.email %>
+      <% else %>
+        <strong><%= Comment.human_attribute_name(:name) %>:</strong>
+        <%= comment.user.name %>
+      <% end %>
+    </p>
+
+    <p>
+      <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
+      <%= comment.created_at %>
+    </p>
+
+    <p>
+      <strong><%= Comment.human_attribute_name(:text) %>:</strong>
+      <%= comment.text %>
+    </p>
+  </div>
+<% end %>
