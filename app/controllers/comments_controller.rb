@@ -17,8 +17,11 @@ class CommentsController < ApplicationController
   # DELETE /books/1 or /books/1.json
   def destroy
     comment = Comment.find(params[:id])
-    comment.destroy
-    redirect_to request.referer, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+
+    if comment.user_id == current_user.id
+      comment.destroy
+      redirect_to request.referer, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+    end
   end
 
   # Only allow a list of trusted parameters through.
