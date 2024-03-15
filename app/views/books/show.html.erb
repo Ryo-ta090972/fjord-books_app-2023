@@ -4,13 +4,7 @@
   <%= render @book %>
 </div>
 
-<% @comments.each do |comment| %>
-  <% unless comment.user_id.nil? || comment.text.blank? %>
-    <p><%= comment.user.name.blank? ? comment.user.email : comment.user.name %></p>
-    <p><%= comment.created_at %></p>
-    <p><%= comment.text %></p>
-  <% end %>
-<% end %>
+<%= render @comments %>
 
 <%= form_with(model: @comment) do |form| %>
   <div>
