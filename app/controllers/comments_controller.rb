@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :set_comment, only: %i[edit update destroy]
+
+  # GET /books/1/edit
+  def edit; end
 
   # POST /comments
   def create
@@ -14,14 +18,26 @@ class CommentsController < ApplicationController
     end
   end
 
+  # PATCH/PUT /books/1 or /books/1.json
+  def update
+    if @comment.update(comment_params)
+      redirect_to polymorphic_path([@comment.commentable]), notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    else
+      fredirect_to polymorphic_path([@comment.commentable]), status: :unprocessable_entity
+    end
+  end
+
   # DELETE /books/1 or /books/1.json
   def destroy
-    comment = Comment.find(params[:id])
-
-    if comment.user_id == current_user.id
-      comment.destroy
+    if @comment.user_id == current_user.id
+      @comment.destroy
       redirect_to request.referer, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
     end
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
