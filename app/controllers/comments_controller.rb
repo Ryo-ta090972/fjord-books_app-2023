@@ -6,7 +6,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
+
+    if @comment.save
+      redirect_to request.referer, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    else
+      redirect_to request.referer, status: :unprocessable_entity
+    end
   end
 
   # Only allow a list of trusted parameters through.
