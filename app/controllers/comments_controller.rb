@@ -29,10 +29,10 @@ class CommentsController < ApplicationController
 
   # DELETE /books/1 or /books/1.json
   def destroy
-    if @comment.user_id == current_user.id
-      @comment.destroy
-      redirect_to request.referer, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
-    end
+    return unless @comment.user_id == current_user.id
+
+    @comment.destroy
+    redirect_to request.referer, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   # Use callbacks to share common setup or constraints between actions.
