@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1 or /reports/1.json
   def show
-    @comments = @report.comments
+    @comments = @report.comments.where.not(id: nil)
     @comment = @report.comments.build
   end
 
