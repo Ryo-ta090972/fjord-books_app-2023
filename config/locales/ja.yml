@@ -216,6 +216,9 @@ ja:
       create: コメントする
       delete: 削除
       no_comments: コメントはまだありません
+    link:
+      title: この記事は以下の記事からリンクされています
+      notice_link: "からリンク"
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
