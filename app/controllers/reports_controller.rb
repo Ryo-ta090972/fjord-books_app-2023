@@ -20,8 +20,15 @@ class ReportsController < ApplicationController
 
   def create
     @report = current_user.reports.new(report_params)
+    mentioning_report_ids = scan_mention_report_ids
 
     if @report.save
+      if mentioning_report_ids.present?
+        mentioning_report_ids.each do |id|
+          @report.mentions.create(mentioned_report_id: id.to_i)
+        end
+      end
+
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new, status: :unprocessable_entity
@@ -30,6 +37,16 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
+      mentioning_report_ids = scan_mention_report_ids
+
+      if mentioning_report_ids.present?
+        @report.mentions.destroy_all
+
+        mentioning_report_ids.each do |id|
+          @report.mentions.create(mentioned_report_id: id.to_i)
+        end
+      end
+
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
       render :edit, status: :unprocessable_entity
@@ -50,5 +67,9 @@ class ReportsController < ApplicationController
 
   def report_params
     params.require(:report).permit(:title, :content)
+  end
+
+  def scan_mention_report_ids
+    @report.content.scan(/http:\/\/localhost:3000\/reports\/(\d+)/).flatten.uniq
   end
 end
