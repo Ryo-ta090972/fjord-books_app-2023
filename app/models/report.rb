@@ -10,7 +10,7 @@ class Report < ApplicationRecord
   has_many :mentions, dependent: :destroy
   has_many :mentioning_reports, through: :mentions, source: :mentioned_report
 
-  has_many :reverse_of_mentions, class_name: 'Mention', foreign_key: 'mentioned_report_id', dependent: :destroy
+  has_many :reverse_of_mentions, class_name: 'Mention', foreign_key: 'mentioned_report_id', dependent: :destroy, inverse_of: 'mentioned_report'
   has_many :mentioned_reports, through: :reverse_of_mentions, source: :report
 
   def editable?(target_user)

@@ -70,6 +70,6 @@ class ReportsController < ApplicationController
   end
 
   def scan_mention_report_ids
-    @report.content.scan(/http:\/\/localhost:3000\/reports\/(\d+)/).flatten.uniq
+    @report.content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq
   end
 end
