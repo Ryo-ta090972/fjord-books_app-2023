@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to request.referer, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+      redirect_to polymorphic_path([@comment.commentable]), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      redirect_to request.referer, status: :unprocessable_entity
+      redirect_to polymorphic_path([@comment.commentable]), status: :unprocessable_entity
     end
   end
 
