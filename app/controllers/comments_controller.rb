@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
-    return unless @comment.user_id == current_user.id
+    return if @comment.user_id != current_user.id
 
     if @comment.update(comment_params)
       redirect_to polymorphic_path([@comment.commentable]), notice: t('controllers.common.notice_update', name: Comment.model_name.human)
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
 
   # DELETE /books/1 or /books/1.json
   def destroy
-    return unless @comment.user_id == current_user.id
+    return if @comment.user_id != current_user.id
 
     @comment.destroy
     redirect_to request.referer, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
