@@ -64,7 +64,7 @@ class ReportsController < ApplicationController
     @report.mentions.destroy_all
     if ids.present?
       ids.each do |id|
-        @report.mentions.create(mentioned_report_id: id.to_i)
+        @report.mentions.create(mentioned_report_id: id.to_i) if id.to_i != @report.id
       end
     end
   end
