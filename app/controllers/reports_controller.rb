@@ -38,10 +38,8 @@ class ReportsController < ApplicationController
   def update
     if @report.update(report_params)
       mentioning_report_ids = scan_mention_report_ids
-
+      @report.mentions.destroy_all
       if mentioning_report_ids.present?
-        @report.mentions.destroy_all
-
         mentioning_report_ids.each do |id|
           @report.mentions.create(mentioned_report_id: id.to_i)
         end
