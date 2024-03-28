@@ -24,15 +24,15 @@ class Report < ApplicationRecord
   end
 
   def create_mention
-    mentioning_ids = self.content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq
+    mentioning_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq
     report_ids = Report.pluck(:id)
     mentions.destroy_all
 
-    if mentioning_ids.present?
-      mentioning_ids.each do |mentioning_id|
-        id = mentioning_id.to_i
-        self.mentions.create(mentioned_report_id: id) if id != self.id && report_ids.include?(id)
-      end
+    return if mentioning_ids.blank?
+
+    mentioning_ids.each do |mentioning_id|
+      id = mentioning_id.to_i
+      mentions.create(mentioned_report_id: id) if id != self.id && report_ids.include?(id)
     end
   end
 end
