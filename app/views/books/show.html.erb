@@ -4,6 +4,14 @@
   <%= render @book %>
 </div>
 
+<% if @comments.present? %>
+  <%= render @comments %>
+<% else %>
+  <p><%= t('errors.messages.required', name: Comment.model_name.human.downcase) %></p>
+<% end %>
+
+<%= render 'comments/form', comment: @comment %>
+
 <nav class="page-nav">
   <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %> |
   <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>

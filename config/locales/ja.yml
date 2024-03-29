@@ -105,7 +105,7 @@ ja:
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
       present: は入力しないでください
-      required: を入力してください
+      required: "%{name}を入力してください"
       taken: はすでに存在します
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
@@ -177,7 +177,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
@@ -188,6 +188,7 @@ ja:
       destroy: "この%{name}を削除"
       new: "%{name}の新規作成"
       back: "%{name}の一覧に戻る"
+      back_show: "%{name}の詳細に戻る"
       delete_confirm: よろしいですか？
       title_index: "%{name}の一覧"
       title_new: "%{name}の新規作成"
