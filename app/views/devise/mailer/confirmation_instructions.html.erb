@@ -1,0 +1,5 @@
+<p><%= t('views.common.welcome', name: @email) %>!</p>
+
+<p><%= t('devise.mailer.confirmation_instructions.instruction') %>:</p>
+
+<p><%= link_to t('views.common.confirm', name: User.model_name.human), confirmation_url(@resource, confirmation_token: @token) %></p>

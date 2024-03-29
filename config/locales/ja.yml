@@ -194,6 +194,13 @@ ja:
       title_edit: "%{name}の編集"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
+      hello: "こんにちは %{name}"
+      welcome: "ようこそ %{name}"
+      confirm: "この%{name}を確認"
+      link_below:
+        change_password: '下記のリンクからパスワードを変更できます。'
+        unlock_account: '下記のリンクからアカウントのロックを解除できます。'
+      unlock_account: 'アカウントのロック解除'
     pagination:
       first: '« 最初'
       last: '最後 »'
