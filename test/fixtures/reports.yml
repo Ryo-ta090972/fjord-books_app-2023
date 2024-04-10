@@ -1,36 +1,36 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-test_report:
+system_test_report:
   user: alice
-  title: MyString
-  content: MyText
+  title: 課題提出
+  content: 「Railsでテストを書く」のプラクティスの課題を提出した。
 
-mentioned_report_1:
+mentioned_report_id_1_form_report_id_3:
   id: 1
   user: alice
-  title: mentioned_report
-  content: no_mention
+  title: 勉強を進めた
+  content: 参考書籍のみの勉強しかできていない。
 
-mentioned_report_2:
+mentioned_report_id_2_form_report_id_3:
   id: 2
   user: alice
-  title: mentioned_report
-  content: no_mention
+  title: 休養をとった
+  content: 家でゆっくりして体を休めた。
 
-mentioning_report:
+mentioning_report_id_3_to_report_id_1:
   id: 3
   user: bob
-  title: mentioning_report
-  content: http://localhost:3000/reports/1
+  title: 他の人の日報を見てみた
+  content: http://localhost:3000/reports/1の日報が面白かった。
 
-not_exist_mentioning_report:
+mentioning_report_id_4_to_not_exist_report:
   id: 4
   user: bob
-  title: not_exist
-  content: http://localhost:3000/reports/99
+  title: 日報がない？
+  content: http://localhost:3000/reports/99の日報が好きだったのに削除されている模様。
 
-mentioning_self_report:
+mentioning_report_id_5_to_self_report:
   id: 5
   user: bob
-  title: not_exist
-  content: http://localhost:3000/reports/5
+  title: 勉強になる日報はこれだ
+  content: http://localhost:3000/reports/5の日報がとても参考になります。

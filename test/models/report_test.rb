@@ -20,30 +20,30 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'save_mentions when create report' do
-    mentioned_report_1 = reports(:mentioned_report_1)
-    mentioning_report = reports(:mentioning_report)
+    mentioned_report = reports(:mentioned_report_id_1_form_report_id_3)
+    mentioning_report = reports(:mentioning_report_id_3_to_report_id_1)
     mentioning_report.save
     assert_not mentioning_report.mentioning_reports.empty?
 
-    mentioning_report.mentioning_reports.each do |report|
-      assert_equal mentioned_report_1, report
+    mentioning_report.mentioning_reports.each do |mentioning_report|
+      assert_equal mentioned_report, mentioning_report
     end
   end
 
   test 'save_mentions when update report' do
-    mentioned_report_2 = reports(:mentioned_report_2)
-    mentioning_report = reports(:mentioning_report)
-    new_content = 'http://localhost:3000/reports/2'
+    mentioned_report = reports(:mentioned_report_id_2_form_report_id_3)
+    mentioning_report = reports(:mentioning_report_id_3_to_report_id_1)
+    new_content = '言及をhttp://localhost:3000/reports/2に変更する'
     mentioning_report.update(content: new_content)
     assert_not mentioning_report.mentioning_reports.empty?
 
-    mentioning_report.mentioning_reports.each do |report|
-      assert_equal mentioned_report_2, report
+    mentioning_report.mentioning_reports.each do |mentioning_report|
+      assert_equal mentioned_report, mentioning_report
     end
   end
 
   test 'save_mentions when destroy report' do
-    mentioning_report = reports(:mentioning_report)
+    mentioning_report = reports(:mentioning_report_id_3_to_report_id_1)
     mentioning_report.save
     assert ReportMention.exists?
 
@@ -51,14 +51,14 @@ class ReportTest < ActiveSupport::TestCase
     assert_not ReportMention.exists?
   end
 
-  test 'save_mentions case not exist report' do
-    report = reports(:not_exist_mentioning_report)
+  test 'save_mentions case mentioning not exist report' do
+    report = reports(:mentioning_report_id_4_to_not_exist_report)
     report.save
     assert_not ReportMention.exists?
   end
 
   test 'save_mentions case mentioning self report' do
-    report = reports(:mentioning_self_report)
+    report = reports(:mentioning_report_id_5_to_self_report)
     report.save
     assert_not ReportMention.exists?
   end
