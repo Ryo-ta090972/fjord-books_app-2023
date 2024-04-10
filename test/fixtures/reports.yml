@@ -4,3 +4,21 @@ test_report:
   user: alice
   title: MyString
   content: MyText
+
+mentioned_report_1:
+  id: 1
+  user: alice
+  title: mentioned_report
+  content: no_mention
+
+mentioned_report_2:
+  id: 2
+  user: alice
+  title: mentioned_report
+  content: no_mention
+
+mentioning_report:
+  id: 3
+  user: bob
+  title: mentioning_report
+  content: http://localhost:3000/reports/1
