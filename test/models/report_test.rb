@@ -5,11 +5,11 @@ require 'debug' # binding.break
 
 class ReportTest < ActiveSupport::TestCase
   test 'editable?' do
-    eligible_user = User.new(email: 'eligible@example.com', name: 'eligible_user')
-    ineligible_user = User.new(email: 'ineligible@example.com', name: 'ineligible_user')
-    report = Report.new(user: eligible_user)
-    assert report.editable?(eligible_user)
-    assert_not report.editable?(ineligible_user)
+    alice = users(:alice)
+    bob = users(:bob)
+    report = Report.new(user: alice)
+    assert report.editable?(alice)
+    assert_not report.editable?(bob)
   end
 
   test 'created_on' do
