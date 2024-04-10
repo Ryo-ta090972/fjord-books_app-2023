@@ -56,4 +56,10 @@ class ReportTest < ActiveSupport::TestCase
     report.save
     assert_not ReportMention.exists?
   end
+
+  test 'save_mentions case mentioning self report' do
+    report = reports(:mentioning_self_report)
+    report.save
+    assert_not ReportMention.exists?
+  end
 end
