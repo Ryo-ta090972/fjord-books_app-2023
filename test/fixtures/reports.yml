@@ -22,3 +22,9 @@ mentioning_report:
   user: bob
   title: mentioning_report
   content: http://localhost:3000/reports/1
+
+not_exist_mentioning_report:
+  id: 4
+  user: bob
+  title: not_exist
+  content: http://localhost:3000/reports/99
