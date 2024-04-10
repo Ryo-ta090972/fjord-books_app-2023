@@ -50,4 +50,10 @@ class ReportTest < ActiveSupport::TestCase
     mentioning_report.destroy
     assert_not ReportMention.exists?
   end
+
+  test 'save_mentions case not exist report' do
+    report = reports(:not_exist_mentioning_report)
+    report.save
+    assert_not ReportMention.exists?
+  end
 end
