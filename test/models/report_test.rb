@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 require 'test_helper'
+require 'debug' # binding.break
 
 class ReportTest < ActiveSupport::TestCase
   test 'editable?' do
-    target_user = User.new(email: 'test@example.com', name: 'test')
-    report = Report.new(user: target_user)
-    assert report.editable?(target_user)
+    eligible_user = User.new(email: 'eligible@example.com', name: 'eligible_user')
+    ineligible_user = User.new(email: 'ineligible@example.com', name: 'ineligible_user')
+    report = Report.new(user: eligible_user)
+    assert report.editable?(eligible_user)
+    assert_not report.editable?(ineligible_user)
   end
 
   test 'created_on' do
