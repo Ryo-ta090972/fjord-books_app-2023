@@ -41,4 +41,13 @@ class ReportTest < ActiveSupport::TestCase
       assert_equal mentioned_report_2, report
     end
   end
+
+  test 'save_mentions when destroy report' do
+    mentioning_report = reports(:mentioning_report)
+    mentioning_report.save
+    assert ReportMention.exists?
+
+    mentioning_report.destroy
+    assert_not ReportMention.exists?
+  end
 end
