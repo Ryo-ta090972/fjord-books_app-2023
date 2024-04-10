@@ -7,7 +7,7 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(email: 'test@example.com', name: '')
     assert_equal 'test@example.com', user.name_or_email
 
-    user.name = 'test'
-    assert_equal 'test', user.name_or_email
+    user.name = 'alice'
+    assert_equal 'alice', user.name_or_email
   end
 end
