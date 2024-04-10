@@ -28,3 +28,9 @@ not_exist_mentioning_report:
   user: bob
   title: not_exist
   content: http://localhost:3000/reports/99
+
+mentioning_self_report:
+  id: 5
+  user: bob
+  title: not_exist
+  content: http://localhost:3000/reports/5
