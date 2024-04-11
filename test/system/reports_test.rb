@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require 'application_system_test_case'
+require 'debug'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:system_test_report)
+    @report = reports(:alice_report)
 
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
@@ -125,10 +126,24 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '日報の一覧に戻る'
   end
 
+  test 'should not update Report' do
+    bob_report = reports(:bob_report)
+    visit edit_report_url(bob_report)
+
+    assert_no_text 'この日報を編集'
+  end
+
   test 'should destroy Report' do
     visit report_url(@report)
     click_on 'この日報を削除', match: :first
 
     assert_text '日報が削除されました。'
+  end
+
+  test 'should not destroy Report' do
+    bob_report = reports(:bob_report)
+    visit report_url(bob_report)
+
+    assert_no_text 'この日報を削除'
   end
 end
