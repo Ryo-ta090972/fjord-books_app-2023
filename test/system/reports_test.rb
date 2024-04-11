@@ -68,12 +68,60 @@ class ReportsTest < ApplicationSystemTestCase
   test 'should update Report' do
     visit report_url(@report)
     click_on 'この日報を編集', match: :first
+    new_title = 'タイトルを変更'
+    new_content = '内容を変更'
 
-    fill_in 'タイトル', with: @report.title
-    fill_in '内容', with: @report.content
+    fill_in 'タイトル', with: new_title
+    fill_in '内容', with: new_content
     click_on '更新する'
 
     assert_text '日報が更新されました。'
+    click_on '日報の一覧に戻る'
+  end
+
+  test 'should error update Report in nothing title and content' do
+    visit report_url(@report)
+    click_on 'この日報を編集', match: :first
+    new_title = ''
+    new_content = ''
+
+    fill_in 'タイトル', with: new_title
+    fill_in '内容', with: new_content
+    click_on '更新する'
+
+    assert_text '2件のエラーがあるため、この日報は保存できませんでした:'
+    assert_text 'タイトルを入力してください'
+    assert_text '内容を入力してください'
+    click_on '日報の一覧に戻る'
+  end
+
+  test 'should error update Report in nothing title' do
+    visit report_url(@report)
+    click_on 'この日報を編集', match: :first
+    new_title = ''
+    new_content = '内容を変更'
+
+    fill_in 'タイトル', with: new_title
+    fill_in '内容', with: new_content
+    click_on '更新する'
+
+    assert_text '1件のエラーがあるため、この日報は保存できませんでした:'
+    assert_text 'タイトルを入力してください'
+    click_on '日報の一覧に戻る'
+  end
+
+  test 'should error update Report in nothing content' do
+    visit report_url(@report)
+    click_on 'この日報を編集', match: :first
+    new_title = 'タイトルを変更'
+    new_content = ''
+
+    fill_in 'タイトル', with: new_title
+    fill_in '内容', with: new_content
+    click_on '更新する'
+
+    assert_text '1件のエラーがあるため、この日報は保存できませんでした:'
+    assert_text '内容を入力してください'
     click_on '日報の一覧に戻る'
   end
 
