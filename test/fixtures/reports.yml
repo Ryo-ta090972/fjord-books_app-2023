@@ -1,9 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-system_test_report:
+alice_report:
   user: alice
   title: 課題提出
   content: 「Railsでテストを書く」のプラクティスの課題を提出した。
+
+bob_report:
+  user: bob
+  title: オブジェクト指向の学習
+  content:  書籍でオブジェクト指向の学習を行った。
 
 mentioned_report_id_1_form_report_id_3:
   id: 1
