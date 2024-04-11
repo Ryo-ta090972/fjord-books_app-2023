@@ -127,7 +127,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'should not update Report' do
     bob_report = reports(:bob_report)
-    visit edit_report_url(bob_report)
+    visit report_url(bob_report)
 
     assert_no_text 'この日報を編集'
   end
