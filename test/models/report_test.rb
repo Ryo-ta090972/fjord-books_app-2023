@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require 'debug' # binding.break
 
 class ReportTest < ActiveSupport::TestCase
   test 'editable?' do

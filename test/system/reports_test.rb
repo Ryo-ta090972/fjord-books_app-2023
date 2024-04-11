@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'application_system_test_case'
-require 'debug'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
@@ -68,7 +67,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'should update Report' do
     visit report_url(@report)
-    click_on 'この日報を編集', match: :first
+    click_on 'この日報を編集'
     new_title = 'タイトルを変更'
     new_content = '内容を変更'
 
@@ -82,7 +81,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'should error update Report in nothing title and content' do
     visit report_url(@report)
-    click_on 'この日報を編集', match: :first
+    click_on 'この日報を編集'
     new_title = ''
     new_content = ''
 
@@ -98,7 +97,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'should error update Report in nothing title' do
     visit report_url(@report)
-    click_on 'この日報を編集', match: :first
+    click_on 'この日報を編集'
     new_title = ''
     new_content = '内容を変更'
 
@@ -113,7 +112,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'should error update Report in nothing content' do
     visit report_url(@report)
-    click_on 'この日報を編集', match: :first
+    click_on 'この日報を編集'
     new_title = 'タイトルを変更'
     new_content = ''
 
@@ -135,7 +134,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'should destroy Report' do
     visit report_url(@report)
-    click_on 'この日報を削除', match: :first
+    click_on 'この日報を削除'
 
     assert_text '日報が削除されました。'
   end
