@@ -30,6 +30,41 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '日報の一覧に戻る'
   end
 
+  test 'should error create report in nothing title and content' do
+    visit reports_url
+    click_on '日報の新規作成'
+    click_on '登録する'
+
+    assert_text '2件のエラーがあるため、この日報は保存できませんでした:'
+    assert_text 'タイトルを入力してください'
+    assert_text '内容を入力してください'
+    click_on '日報の一覧に戻る'
+  end
+
+  test 'should error create report in nothing title' do
+    visit reports_url
+    click_on '日報の新規作成'
+
+    fill_in '内容', with: @report.content
+    click_on '登録する'
+
+    assert_text '1件のエラーがあるため、この日報は保存できませんでした:'
+    assert_text 'タイトルを入力してください'
+    click_on '日報の一覧に戻る'
+  end
+
+  test 'should error create report in nothing content' do
+    visit reports_url
+    click_on '日報の新規作成'
+
+    fill_in 'タイトル', with: @report.title
+    click_on '登録する'
+
+    assert_text '1件のエラーがあるため、この日報は保存できませんでした:'
+    assert_text '内容を入力してください'
+    click_on '日報の一覧に戻る'
+  end
+
   test 'should update Report' do
     visit report_url(@report)
     click_on 'この日報を編集', match: :first
