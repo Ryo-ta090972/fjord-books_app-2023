@@ -10,32 +10,14 @@ bob_report:
   title: オブジェクト指向の学習
   content:  書籍でオブジェクト指向の学習を行った。
 
-mentioned_report_id1_from_report_id3:
+report_id1:
   id: 1
   user: alice
   title: 勉強を進めた
   content: 参考書籍のみの勉強しかできていない。
 
-mentioned_report_id2_from_report_id3:
+report_id2:
   id: 2
   user: alice
   title: 休養をとった
-  content: 家でゆっくりして体を休めた。
-
-mentioning_report_id3_to_report_id1:
-  id: 3
-  user: bob
-  title: 他の人の日報を見てみた
-  content: http://localhost:3000/reports/1の日報が面白かった。
-
-mentioning_report_id4_to_not_exist_report:
-  id: 4
-  user: bob
-  title: 日報がない？
-  content: http://localhost:3000/reports/99の日報が好きだったのに削除されている模様。
-
-mentioning_report_id5_to_self_report:
-  id: 5
-  user: bob
-  title: 勉強になる日報はこれだ
-  content: http://localhost:3000/reports/5の日報がとても参考になります。
+  content: 自宅でゆっくり過ごした。
