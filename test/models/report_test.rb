@@ -19,8 +19,9 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'save_mentions when create report' do
-    mentioned_report = reports(:mentioned_report_id1_from_report_id3)
-    mentioning_report = reports(:mentioning_report_id3_to_report_id1)
+    mentioned_report = reports(:report_id1)
+    mentioning_report = reports(:report_id2)
+    mentioning_report.content = 'http://localhost:3000/reports/1の日報を読みながら過ごした。'
     mentioning_report.save
     assert_not mentioning_report.mentioning_reports.empty?
 
@@ -30,10 +31,9 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'save_mentions when update report' do
-    mentioned_report = reports(:mentioned_report_id2_from_report_id3)
-    mentioning_report = reports(:mentioning_report_id3_to_report_id1)
-    new_content = '言及をhttp://localhost:3000/reports/2に変更する'
-    mentioning_report.update(content: new_content)
+    mentioned_report = reports(:report_id1)
+    mentioning_report = reports(:report_id2)
+    mentioning_report.update(content: 'http://localhost:3000/reports/1の日報を読みながら過ごした。')
     assert_not mentioning_report.mentioning_reports.empty?
 
     mentioning_report.mentioning_reports.each do |report|
@@ -42,7 +42,8 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'save_mentions when destroy report' do
-    mentioning_report = reports(:mentioning_report_id3_to_report_id1)
+    mentioning_report = reports(:report_id2)
+    mentioning_report.content = 'http://localhost:3000/reports/1の日報を読みながら過ごした。'
     mentioning_report.save
     assert ReportMention.exists?
 
@@ -51,14 +52,16 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'save_mentions case mentioning not exist report' do
-    report = reports(:mentioning_report_id4_to_not_exist_report)
-    report.save
+    mentioning_report = reports(:report_id2)
+    mentioning_report.content = 'http://localhost:3000/reports/99の日報を読みながら過ごした。'
+    mentioning_report.save
     assert_not ReportMention.exists?
   end
 
   test 'save_mentions case mentioning self report' do
-    report = reports(:mentioning_report_id5_to_self_report)
-    report.save
+    mentioning_report = reports(:report_id2)
+    mentioning_report.content = '自分自身のhttp://localhost:3000/reports/2の日報を読みながら過ごした。'
+    mentioning_report.save
     assert_not ReportMention.exists?
   end
 end
