@@ -12,10 +12,10 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'created_on' do
-    current_datetime = DateTime.now
-    current_date = Time.zone.today
-    report = Report.new(created_at: current_datetime)
-    assert_equal current_date, report.created_on
+    datetime = DateTime.new(1993, 2, 24, 12, 30, 45)
+    date = Date.new(1993, 2, 24)
+    report = Report.new(created_at: datetime)
+    assert_equal date, report.created_on
   end
 
   test 'save_mentions when create report' do
