@@ -1,11 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  title: MyString
-  content: MyText
+alice_report:
+  user: alice
+  title: 課題提出
+  content: 「Railsでテストを書く」のプラクティスの課題を提出した。
 
-two:
-  user: two
-  title: MyString
-  content: MyText
+bob_report:
+  user: bob
+  title: オブジェクト指向の学習
+  content:  書籍でオブジェクト指向の学習を行った。
+
+report_id1:
+  id: 1
+  user: alice
+  title: 勉強を進めた
+  content: 参考書籍のみの勉強しかできていない。
+
+report_id2:
+  id: 2
+  user: alice
+  title: 休養をとった
+  content: 自宅でゆっくり過ごした。
